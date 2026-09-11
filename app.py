@@ -20,6 +20,18 @@ from agent.ticket_triage_agent import analyze_ticket
 # falls back to DEMO/MOCK mode.
 load_dotenv()
 
+# On Streamlit Community Cloud, keys are configured via the app's "Secrets" panel
+# and exposed through st.secrets rather than a .env file or shell env var. Mirror
+# any secret found there into os.environ so agent/ticket_triage_agent.py (which
+# only reads os.environ, kept LLM logic independent of the UI/hosting layer) picks
+# it up the same way locally and when deployed. Safe to skip if no secrets exist.
+if "ANTHROPIC_API_KEY" not in os.environ:
+    try:
+        if "ANTHROPIC_API_KEY" in st.secrets:
+            os.environ["ANTHROPIC_API_KEY"] = st.secrets["ANTHROPIC_API_KEY"]
+    except Exception:
+        pass
+
 with open(
     os.path.join(os.path.dirname(__file__), "data", "sample_tickets.json"),
     "r",
