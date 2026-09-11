@@ -1,0 +1,30 @@
+[
+  {
+    "label": "Login problem",
+    "text": "I forgot my password and cannot login."
+  },
+  {
+    "label": "Billing problem",
+    "text": "I was charged incorrectly for my subscription."
+  },
+  {
+    "label": "Feature request",
+    "text": "Can you please add dark mode?"
+  },
+  {
+    "label": "Bug",
+    "text": "The application crashes whenever I upload a PDF."
+  },
+  {
+    "label": "Widespread outage",
+    "text": "Nobody in our organization can access the platform. The service is down for everyone."
+  },
+  {
+    "label": "Security/data breach",
+    "text": "We believe our account has been hacked and customer data may have been exposed."
+  },
+  {
+    "label": "Unclear ticket",
+    "text": "Hello, I need help."
+  }
+]
